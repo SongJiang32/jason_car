@@ -1,4 +1,3 @@
-# FUCK ZB
 # 两轮差速 & 阿克曼
 
 ## Compile after Preparation
