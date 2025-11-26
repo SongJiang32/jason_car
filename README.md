@@ -6,7 +6,7 @@
 cd jason_ws && catkin build
 ```
 
-## Preparation
+## 配置Cartographer SLAM
 
 ```
 wget http://fishros.com/install -O fishros && . fishros
