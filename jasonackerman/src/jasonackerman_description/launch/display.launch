@@ -1,0 +1,22 @@
+<launch>
+
+  <param name="use_sim_time" value="false" />
+
+  <!-- 参数配置 -->
+  <arg name="model" />
+  <arg name="gui" default="False" />
+
+  <!-- 加载 URDF 文件 -->
+  <param name="robot_description" textfile="$(find jasonackerman_description)/urdf/jasonackerman.urdf" />
+  <param name="use_gui" value="$(arg gui)" />
+
+  <!-- Joint State Publisher GUI -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+  <!-- Robot State Publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- 可选：启动 RViz，使用指定的配置文件 -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jasonackerman_description)/rviz/display.rviz" />
+
+</launch>

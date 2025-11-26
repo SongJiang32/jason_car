@@ -1,0 +1,35 @@
+jasonackerman:
+  #上面的jasonackerman是运动命名空间 Publish all joint states --公布所有--------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  
+  # Velocity Controllers ----速度控制器---------------------
+  flwheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: flwheel_joint
+    pid: {p: 1, i: 0.0, d: 0.0}
+  frwheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: frwheel_joint
+    pid: {p: 1, i: 0.0, d: 0.0}
+  rlwheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: rlwheel_joint
+    pid: {p: 0.5, i: 0.0, d: 0.0}
+  rrwheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: rrwheel_joint
+    pid: {p: 0.5, i: 0.0, d: 0.0}
+
+  # Position Controllers ---位置控制器-----------------------
+  flsteer_position_controller:
+    joint: flsteer_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 5.0, i: 0.0, d: 0.5}
+  frsteer_position_controller:
+    joint: frsteer_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 5.0, i: 0.0, d: 0.5}
+
+

@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<gazebo>
+
+
+                                                                        <!-- PLUGINS -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/jasonackerman</robotNamespace>
+    </plugin>
+    <gravity>1</gravity>
+    <friction>
+      <mu>0.8</mu>
+      <mu2>0.8</mu2>
+    </friction>
+  </gazebo>
+
+
+                                                                        <!-- gazebo plugin for LIDAR -->
+  <gazebo reference="lidar_link">
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 -0.03 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>15</update_rate> 
+      <ray>
+        <scan>
+          <horizontal>
+            <!-- 水平角分辨率LDS-E300-E: 0.5°@25HZ -->
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.1415926535</min_angle>
+            <!-- <min_angle>-1.570796</min_angle> -->
+            <max_angle>3.1415926535</max_angle>
+            <!-- <max_angle>1.570796</max_angle> -->
+          </horizontal>
+        </scan>
+        <range>
+          <!-- 0.1-25m（90%） -->
+          <min>0.21</min>
+          <max>25.0</max>
+          <!-- 距离分辨率mm级 -->
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+                achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <!-- GPU Laser -->
+      <!-- <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> -->
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>  
+
+
+                                                                        <!-- gazebo plugin for fcamera -->
+ <gazebo reference="fcamera_link">
+  <sensor type="depth" name="camera">
+    <always_on>true</always_on>
+    <update_rate>90.0</update_rate>  <!-- 根据深度分辨率的帧率 -->
+    <camera>
+      <!-- 深度相机参数 -->
+      <horizontal_fov>1.50098</horizontal_fov>  <!-- 86° -> 1.50098 弧度 -->
+      <image>
+        <format>B8G8R8</format>
+        <width>1280</width>
+        <height>720</height>
+      </image>
+      <clip>
+        <near>0.3</near>  <!-- 根据理想范围参数 -->
+        <far>3.0</far>    <!-- 根据理想范围参数 -->
+      </clip>
+    </camera>
+    <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.025</baseline>  <!-- 根据相机尺寸估算 -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate> <!-- 保持为0，使用父级<sensor>标签中的update_rate来控制帧率 -->
+      <cameraName>fcamera_ir</cameraName>
+      <imageTopicName>/fcamera/color/image_raw</imageTopicName>
+      <cameraInfoTopicName>/fcamera/color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/fcamera/depth/image_raw</depthImageTopicName>
+      <depthImageCameraInfoTopicName>/fcamera/depth/camera_info</depthImageCameraInfoTopicName>
+      <pointCloudTopicName>/fcamera/depth/points</pointCloudTopicName>
+      <frameName>fcamera_link</frameName>
+      <pointCloudCutoff>0.3</pointCloudCutoff>  <!-- 根据理想范围参数 -->
+      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>  <!-- 根据理想范围参数 -->
+      <distortionK1>0</distortionK1>
+      <distortionK2>0</distortionK2>
+      <distortionK3>0</distortionK3>
+      <distortionT1>0</distortionT1>
+      <distortionT2>0</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+                                                                        <!-- gazebo plugin for bcamera -->
+ <gazebo reference="bcamera_link">
+  <sensor type="depth" name="camera">
+    <always_on>true</always_on>
+    <update_rate>90.0</update_rate>  <!-- 根据深度分辨率的帧率 -->
+    <camera>
+      <!-- 深度相机参数 -->
+      <horizontal_fov>1.50098</horizontal_fov>  <!-- 86° -> 1.50098 弧度 -->
+      <image>
+        <format>B8G8R8</format>
+        <width>1280</width>
+        <height>720</height>
+      </image>
+      <clip>
+        <near>0.3</near>  <!-- 根据理想范围参数 -->
+        <far>3.0</far>    <!-- 根据理想范围参数 -->
+      </clip>
+    </camera>
+    <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.025</baseline>  <!-- 根据相机尺寸估算 -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate> <!-- 保持为0，使用父级<sensor>标签中的update_rate来控制帧率 -->
+      <cameraName>bcamera_ir</cameraName>
+      <imageTopicName>/bcamera/color/image_raw</imageTopicName>
+      <cameraInfoTopicName>/bcamera/color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/bcamera/depth/image_raw</depthImageTopicName>
+      <depthImageCameraInfoTopicName>/bcamera/depth/camera_info</depthImageCameraInfoTopicName>
+      <pointCloudTopicName>/bcamera/depth/points</pointCloudTopicName>
+      <frameName>bcamera_link</frameName>
+      <pointCloudCutoff>0.3</pointCloudCutoff>  <!-- 根据理想范围参数 -->
+      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>  <!-- 根据理想范围参数 -->
+      <distortionK1>0</distortionK1>
+      <distortionK2>0</distortionK2>
+      <distortionK3>0</distortionK3>
+      <distortionT1>0</distortionT1>
+      <distortionT2>0</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+                                                                        <!-- gazebo plugin for imu -->
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu/data</topicName>
+        <bodyName>body_link</bodyName>
+        <updateRateHZ>100.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+
+</gazebo>

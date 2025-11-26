@@ -1,0 +1,4 @@
+jason2wd_control
+/home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_control/share/jason2wd_control/cmake/jason2wd_controlConfig-version.cmake /home/sjh/jason_ws/jason2wd/devel/share/jason2wd_control/cmake/jason2wd_controlConfig-version.cmake
+/home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_control/share/jason2wd_control/cmake/jason2wd_controlConfig.cmake /home/sjh/jason_ws/jason2wd/devel/share/jason2wd_control/cmake/jason2wd_controlConfig.cmake
+/home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_control/lib/pkgconfig/jason2wd_control.pc /home/sjh/jason_ws/jason2wd/devel/lib/pkgconfig/jason2wd_control.pc

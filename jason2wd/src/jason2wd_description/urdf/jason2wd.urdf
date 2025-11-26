@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="jason2wd">
+
+  <!-- base_footprint:to aviod the robot model drop into groud -->
+  <link name="base_footprint_link"> 
+    <visual>
+      <origin rpy = "0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </visual>  
+  </link>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint_link"/>
+    <child link="base_link"/>
+    <origin xyz = "0.0 0.0 0.0" rpy = "0.0 0.0 0.0"/>
+  </joint>
+
+                                        <!-- body -->
+  <!-- base -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.00000000 0.10108756 0.00623713" rpy="0 0 0" />
+      <mass value="1.82483140" />
+      <inertia ixx="0.03024727" ixy="0.00000000" ixz="0.00000000" 
+               iyy="0.03975910" iyz="-0.00096624" izz="0.02932123"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/base_link.STL"/>
+      </geometry>
+      <material name="Blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- leftwheel -->
+  <link name="leftwheel_link">
+    <inertial>
+      <origin xyz="0.025015 1.5613E-17 3.3827E-17" rpy="0 0 0"/>
+      <mass value="0.97002"/>
+      <inertia ixx="0.0031479" ixy="-2.0133E-20" ixz="-3.4297E-20" 
+               iyy="0.0017677" iyz="-1.0842E-19" izz="0.0017677"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/leftwheel.STL"/>
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/leftwheel.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leftwheel_joint" type="continuous">
+    <origin xyz="0 0.135 0.085" rpy="1.9846 0 1.5708"/>
+    <parent link="base_link"/>
+    <child link="leftwheel_link"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="100" velocity="100"/>
+  </joint>
+  <transmission name="leftwheel_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="leftwheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="leftwheel_joint_motor">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+</transmission>
+
+  <!-- rightwheel -->
+  <link name="rightwheel_link">
+    <inertial>
+      <origin xyz="0.0250147602908531 5.20417042793042E-18 0" rpy="0 0 0" />
+      <mass value="0.970024552759726" />
+      <inertia ixx="0.0031479187861595" ixy="5.18498633207202E-19" ixz="-4.35193244517078E-19" 
+               iyy="0.00176772418850793" iyz="1.62630325872826E-19" izz="0.00176772418850793" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/rightwheel.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/rightwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rightwheel_joint" type="continuous">
+    <origin xyz="0 -0.135 0.085" rpy="0.5198 0 -1.5708" />
+    <parent link="base_link" />
+    <child link="rightwheel_link" />
+    <axis xyz="-1 0 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+  <transmission name="rightwheel_joint_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rightwheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rightwheel_joint_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+  <!-- casterhandle1 -->
+  <link name="casterhandle1_link">
+    <inertial>
+      <origin xyz="0 0.0297669849189359 -0.00695284912191863" rpy="0 0 0" />
+      <mass value="0.0107364974282701" />
+      <inertia ixx="5.80576146335529E-06" ixy="-2.43521972335611E-21" ixz="-1.48230765769503E-21"
+               iyy="1.45396246086487E-06" iyz="-1.41313210015193E-06" izz="4.55928007631684E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle1.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="casterhandle1_joint" type="continuous">
+    <origin xyz="0.1299 -0.075 0.01" rpy="1.5708 0 -2.1443" />
+    <parent link="base_link" />
+    <child link="casterhandle1_link" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- caster1 -->
+  <link name="caster1_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0203459824312811" />
+      <inertia ixx="3.68448896895517E-06" ixy="2.38228016415272E-22" ixz="2.01170324972896E-21"
+               iyy="4.49587566651826E-06" iyz="-1.05879118406788E-22" izz="4.49587566651827E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster1.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster1_joint" type="continuous">
+    <origin xyz="0 0.01 -0.025" rpy="-0.21648 0 -3.1416" />
+    <parent link="casterhandle1_link" />
+    <child link="caster1_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- casterhandle2 -->
+  <link name="casterhandle2_link">
+    <inertial>
+      <origin xyz="2.08166817117217E-17 0.0297669849189359 -0.00695284912191868" rpy="0 0 0" />
+      <mass value="0.0107364974282701" />
+      <inertia ixx="5.80576146335528E-06" ixy="-5.29395592033938E-22" ixz="-1.27054942088145E-21"
+               iyy="1.45396246086487E-06" iyz="-1.41313210015192E-06" izz="4.55928007631684E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle2.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="casterhandle2_joint" type="continuous">
+    <origin xyz="0.1299 0.075 0.01" rpy="1.5708 0 -0.85675" />
+    <parent link="base_link" />
+    <child link="casterhandle2_link" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- caster2 -->
+  <link name="caster2_link">
+    <inertial>
+      <origin xyz="5.55111512312578E-17 0 0" rpy="0 0 0" />
+      <mass value="0.0203459824312811" />
+      <inertia ixx="3.68448896895516E-06" ixy="-1.05879118406788E-22" ixz="-2.64697796016969E-23" 
+               iyy="4.49587566651826E-06" iyz="-1.58818677610181E-22" izz="4.49587566651826E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster2.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster2_joint" type="continuous">
+    <origin xyz="0 0.01 -0.025" rpy="-1.4513 0 0" />
+    <parent link="casterhandle2_link" />
+    <child link="caster2_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- casterhandle3 -->
+  <link name="casterhandle3_link">
+    <inertial>
+      <origin xyz="0 0.0297669849189359 -0.00695284912191872" rpy="0 0 0" />
+      <mass value="0.0107364974282701" />
+      <inertia ixx="5.80576146335528E-06" ixy="-3.17637355220363E-22" ixz="-3.17637355220363E-22"
+               iyy="1.45396246086487E-06" iyz="-1.41313210015192E-06" izz="4.55928007631684E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle3.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="casterhandle3_joint" type="continuous">
+    <origin xyz="-0.1299 0.075 0.01" rpy="1.5708 0 -0.39591" />
+    <parent link="base_link" />
+    <child link="casterhandle3_link" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- caster3 -->
+  <link name="caster3_link">
+    <inertial>
+      <origin xyz="1.38777878078145E-16 0 -6.93889390390723E-18" rpy="0 0 0" />
+      <mass value="0.0203459824312811" />
+      <inertia ixx="3.68448896895516E-06" ixy="-1.58818677610181E-22" ixz="1.27054942088145E-21"
+               iyy="4.49587566651827E-06" iyz="-1.32348898008484E-22" izz="4.49587566651827E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster3.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster3_joint" type="continuous">
+    <origin xyz="0 0.01 -0.025" rpy="0.53778 0 0" />
+    <parent link="casterhandle3_link" />
+    <child link="caster3_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- casterhandle4 -->
+  <link name="casterhandle4_link">
+    <inertial>
+      <origin xyz="2.77555756156289E-17 0.0297669849189359 -0.00695284912191868" rpy="0 0 0" />
+      <mass value="0.0107364974282701" />
+      <inertia ixx="5.80576146335528E-06" ixy="6.37425380033363E-21" ixz="5.84982129197501E-21"
+               iyy="1.45396246086487E-06" iyz="-1.41313210015192E-06" izz="4.55928007631684E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle4.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/casterhandle4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="casterhandle4_joint" type="continuous">
+    <origin xyz="-0.1299 -0.075 0.01" rpy="1.5708 0 0.0055428" />
+    <parent link="base_link" />
+    <child link="casterhandle4_link" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- caster4 -->
+  <link name="caster4_link">
+    <inertial>
+      <origin xyz="5.55111512312578E-17 6.93889390390723E-18 -1.38777878078145E-17" rpy="0 0 0" />
+      <mass value="0.020345982431281" />
+      <inertia ixx="3.68448896895516E-06" ixy="-1.61920604907255E-21" ixz="-3.8513529320469E-21"
+               iyy="4.49587566651826E-06" iyz="-1.83874818469722E-22" izz="4.49587566651826E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster4.STL" />
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/caster4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster4_joint" type="continuous">
+    <origin xyz="0 0.01 -0.025" rpy="0.20426 0 0" />
+    <parent link="casterhandle4_link" />
+    <child link="caster4_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="100" velocity="100" />
+  </joint>
+
+  <!-- imu -->
+  <link name="imu_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0"
+               iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/imu.STL" />
+      </geometry>
+      <material name="White">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0 0 0.241" rpy="0 0 1.5708" />
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <axis xyz="0 0 0" />
+  </joint>  
+
+                                        <!-- sensors -->
+  <!-- lidar -->
+  <link name="lidar_link">
+    <inertial>
+      <origin xyz="4.09310872603549E-16 3.99729920717014E-16 0.0153948317043902" rpy="0 0 0" />
+      <mass value="0.0840106255359657" />
+      <inertia ixx="2.77081844063037E-05" ixy="1.41172157875717E-21" ixz="2.29728265499214E-22" 
+               iyy="2.77081844063037E-05" iyz="3.63907857867545E-22" izz="3.448474197593E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="3.14159 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/lidar.STL" />
+      </geometry>
+      <material name="Orange">
+        <color rgba="1.0 0.5 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0 0 0.248" rpy="0  0  0" />
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+                                          <!-- camera -->
+  <!-- camera -->
+  <link name="depth_camera_link">
+    <inertial>
+      <origin xyz="0.00885919804493583 0.011427228102544 0.0149191163471901" rpy="0 0 0" />
+      <mass value="0.0503377869026273" />
+      <inertia ixx="5.40435557385604E-06" ixy="-2.01817407752424E-21" ixz="2.43872238839389E-22"
+               iyy="3.51518348354752E-05" iyz="-3.17629361829215E-10" izz="3.29633328279795E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/depth_camera.STL" />
+      </geometry>
+      <material name="Red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/depth_camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="depth_camera_joint" type="fixed">
+    <origin xyz="0.15 -0.0088592 0.10665" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="depth_camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+                                        <!-- sonars -->
+  <!-- leftsonar -->
+  <link name="leftsonar_link">
+    <inertial>
+      <origin xyz="0.00792027808007231 0.000168686050255766 -3.40353925598613E-11" rpy="0 0 0" />
+      <mass value="0.00838075367254196" />
+      <inertia ixx="1.66380504569355E-06" ixy="-2.94013297145479E-09" ixz="2.87516389806945E-15"
+               iyy="1.63719750563248E-06" iyz="-9.53790082675265E-13" izz="6.5615682924952E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/sonar.STL" />
+      </geometry>
+      <material name="Green">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/sonar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftsonar_joint"
+    type="fixed">
+    <origin xyz="0.1349 0.06634 0.098" rpy="1.5708 0 0.5236" />
+    <parent link="base_link" />
+    <child link="leftsonar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <!-- right_sonar -->
+  <link name="rightsonar_link">
+    <inertial>
+      <origin xyz="0.00792027808007228 0.000168686050255773 -3.40354064376491E-11" rpy="0 0 0" />
+      <mass value="0.00838075367254196" />
+      <inertia ixx="1.66380504569355E-06" ixy="-2.94013297145484E-09" ixz="2.87516246870135E-15"
+               iyy="1.63719750563248E-06" iyz="-9.53790082856004E-13" izz="6.5615682924952E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/sonar.STL" />
+      </geometry>
+      <material name="Green">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jason2wd_description/meshes/sonar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rightsonar_joint" type="fixed">
+    <origin xyz="0.1349 -0.06634 0.098" rpy="1.5708 0 -0.5236" />
+    <parent link="base_link" />
+    <child link="rightsonar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+                                        <!-- gazebo plugin for WHEELS -->
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <updateRate>10</updateRate>
+      <leftJoint>leftwheel_joint</leftJoint>
+      <rightJoint>rightwheel_joint</rightJoint>
+      <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+      <wheelSeparation>0.315</wheelSeparation>
+      <wheelDiameter>0.17</wheelDiameter>
+      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+      <wheelAcceleration>2.0</wheelAcceleration>
+      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+      <wheelTorque>40</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint_link</robotBaseFrame>
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+      <odometrySource>1</odometrySource>
+      <publishWheelTF>true</publishWheelTF>
+      <publishOdom>true</publishOdom>
+      <publishWheelJointState>true</publishWheelJointState>
+      <!-- Set to true to swap right and left wheels, defaults to true -->
+      <legacyMode>false</legacyMode>
+    </plugin>
+  </gazebo>
+
+                                        <!-- gazebo plugin for LIDAR -->
+  <gazebo reference="lidar_link">
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 -0.03 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>15</update_rate> 
+      <ray>
+        <scan>
+          <horizontal>
+            <!-- 水平角分辨率LDS-E300-E: 0.5°@25HZ -->
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.1415926535</min_angle>
+            <!-- <min_angle>-1.570796</min_angle> -->
+            <max_angle>3.1415926535</max_angle>
+            <!-- <max_angle>1.570796</max_angle> -->
+          </horizontal>
+        </scan>
+        <range>
+          <!-- 0.1-25m（90%） -->
+          <min>0.21</min>
+          <max>25.0</max>
+          <!-- 距离分辨率mm级 -->
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+                achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <!-- GPU Laser -->
+      <!-- <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> -->
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>                                        
+
+                                        <!-- gazebo plugin for DEPTH_CAMERA -->
+ <gazebo reference="depth_camera_link">
+  <sensor type="depth" name="camera">
+    <always_on>true</always_on>
+    <update_rate>90.0</update_rate>  <!-- 根据深度分辨率的帧率 -->
+    <camera>
+      <!-- 深度相机参数 -->
+      <horizontal_fov>1.50098</horizontal_fov>  <!-- 86° -> 1.50098 弧度 -->
+      <image>
+        <format>B8G8R8</format>
+        <width>1280</width>
+        <height>720</height>
+      </image>
+      <clip>
+        <near>0.3</near>  <!-- 根据理想范围参数 -->
+        <far>3.0</far>    <!-- 根据理想范围参数 -->
+      </clip>
+    </camera>
+    <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.025</baseline>  <!-- 根据相机尺寸估算 -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate> <!-- 保持为0，使用父级<sensor>标签中的update_rate来控制帧率 -->
+      <cameraName>camera_ir</cameraName>
+      <imageTopicName>/camera/color/image_raw</imageTopicName>
+      <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+      <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
+      <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+      <frameName>depth_camera_link</frameName>
+      <pointCloudCutoff>0.3</pointCloudCutoff>  <!-- 根据理想范围参数 -->
+      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>  <!-- 根据理想范围参数 -->
+      <distortionK1>0</distortionK1>
+      <distortionK2>0</distortionK2>
+      <distortionK3>0</distortionK3>
+      <distortionT1>0</distortionT1>
+      <distortionT2>0</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+                                        <!-- gazebo plugin for IMU__LINK -->
+<gazebo reference="imu_link">
+  <gravity>true</gravity>
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>true</visualize>
+    <topic>__default_topic__</topic>
+    <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <topicName>imu/data</topicName>
+      <bodyName>body_link</bodyName>
+      <updateRateHZ>100.0</updateRateHZ>
+      <gaussianNoise>0.0</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+      <frameName>imu_link</frameName>
+    </plugin>
+    <pose>0 0 0 0 0 0</pose>
+  </sensor>
+</gazebo>
+
+  </robot>

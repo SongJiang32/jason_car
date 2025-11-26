@@ -1,0 +1,6 @@
+Symlinking /home/sjh/jason_ws/jason2wd/devel/share/jason2wd_vision/cmake/jason2wd_visionConfig-version.cmake
+Symlinking /home/sjh/jason_ws/jason2wd/devel/share/jason2wd_vision/cmake/jason2wd_visionConfig.cmake
+Symlinking /home/sjh/jason_ws/jason2wd/devel/lib/jason2wd_vision/cv_image
+Symlinking /home/sjh/jason_ws/jason2wd/devel/lib/jason2wd_vision/cv_follow
+Symlinking /home/sjh/jason_ws/jason2wd/devel/lib/jason2wd_vision/cv_hsv
+Symlinking /home/sjh/jason_ws/jason2wd/devel/lib/pkgconfig/jason2wd_vision.pc

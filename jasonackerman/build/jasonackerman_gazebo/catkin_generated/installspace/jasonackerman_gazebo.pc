@@ -1,0 +1,8 @@
+prefix=/home/sjh/jason_ws/jasonackerman/install
+
+Name: jasonackerman_gazebo
+Description: Description of jasonackerman_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

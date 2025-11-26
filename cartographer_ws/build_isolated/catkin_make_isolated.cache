@@ -1,0 +1,2 @@
+cartographer:cartographer_ros/cartographer_ros:cartographer_ros/cartographer_ros_msgs:cartographer_ros/cartographer_rviz
+-G Ninja -DCATKIN_DEVEL_PREFIX=/home/jason32/cartographer_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/jason32/cartographer_ws/install_isolated

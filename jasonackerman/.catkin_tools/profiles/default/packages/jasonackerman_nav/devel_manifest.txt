@@ -1,0 +1,4 @@
+jasonackerman_nav
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_nav/share/jasonackerman_nav/cmake/jasonackerman_navConfig.cmake /home/sjh/jason_ws/jasonackerman/devel/share/jasonackerman_nav/cmake/jasonackerman_navConfig.cmake
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_nav/share/jasonackerman_nav/cmake/jasonackerman_navConfig-version.cmake /home/sjh/jason_ws/jasonackerman/devel/share/jasonackerman_nav/cmake/jasonackerman_navConfig-version.cmake
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_nav/lib/pkgconfig/jasonackerman_nav.pc /home/sjh/jason_ws/jasonackerman/devel/lib/pkgconfig/jasonackerman_nav.pc

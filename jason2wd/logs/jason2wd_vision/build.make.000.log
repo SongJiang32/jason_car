@@ -1,0 +1,62 @@
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_eus[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp[0m
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp[0m
+[  0%] Built target roscpp_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_eus
+[35m[1mScanning dependencies of target roscpp_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_nodejs[0m
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target roscpp_generate_messages_py[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[  0%] Built target roscpp_generate_messages_cpp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp[0m
+[  0%] Built target roscpp_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_lisp
+[  0%] Built target roscpp_generate_messages_lisp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target cv_hsv[0m
+[35m[1mScanning dependencies of target cv_follow[0m
+[35m[1mScanning dependencies of target cv_image[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/cv_hsv.dir/src/cv_hsv.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/cv_image.dir/src/cv_image.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/cv_follow.dir/src/cv_follow.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable /home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_vision/lib/jason2wd_vision/cv_image[0m
+[ 83%] [32m[1mLinking CXX executable /home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_vision/lib/jason2wd_vision/cv_hsv[0m
+[100%] [32m[1mLinking CXX executable /home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_vision/lib/jason2wd_vision/cv_follow[0m
+[100%] Built target cv_image
+[100%] Built target cv_hsv
+[100%] Built target cv_follow

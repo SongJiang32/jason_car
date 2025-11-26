@@ -1,0 +1,29 @@
+<launch>
+
+<!-- simulation enviroment from gazebo,you can use MuJoCo,Webots and so on -->
+    <include file="$(find jason2wd_gazebo)/launch/jason_sim_cafe.launch"/>
+
+<!-- cartographer 2d or 3d -->
+    <include file="$(find jason2wd_slam)/launch/jason2wd_carto_2d.launch"/>
+    <!-- <include file="$(find jason_slam)/launch/jason_carto_3d.launch"/> -->
+
+<!-- other SLAM algorithms,when you use one you need to comment the cartographer above and open rviz in the terminal-->
+<!-- 1 -->
+    <!-- <node name="hector_mapping" pkg="hector_mapping" type="hector_mapping"> 
+        <param name="map_update_distance_thresh" value="0.1"/>
+        <param name="map_update_angle_thresh" value="0.1"/>
+        <param name="map_pub_period" value="0.1"/>
+    </node>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jason_slam)/rviz/jason_hector.rviz"/> -->
+<!-- 2 -->
+    <!-- <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping">
+        <param name="maxUrange" value="5.0"/>
+        <param name="linearUpdate" value="0.1"/>
+    </node> 
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jason_slam)/rviz/jason_gmapping.rviz"/> -->
+
+<!-- start keyboard_ctrl, if you add "teleop_twist_keyboard" when closing you should input "q" first.Or you can ues rqt_robot_steering  -->
+    <node name="teleop_twist_keyboard_node" pkg="jason2wd_control" type="teleop_twist_keyboard.py" output="screen"/>  
+    <!-- <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering"/>  -->
+
+</launch>

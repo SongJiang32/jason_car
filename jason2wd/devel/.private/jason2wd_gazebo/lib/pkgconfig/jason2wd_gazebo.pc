@@ -1,0 +1,8 @@
+prefix=/home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_gazebo
+
+Name: jason2wd_gazebo
+Description: Description of jason2wd_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

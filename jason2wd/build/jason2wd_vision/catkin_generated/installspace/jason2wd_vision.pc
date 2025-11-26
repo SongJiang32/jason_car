@@ -1,0 +1,8 @@
+prefix=/home/sjh/jason_ws/jason2wd/install
+
+Name: jason2wd_vision
+Description: Description of jason2wd_vision
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

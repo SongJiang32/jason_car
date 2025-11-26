@@ -1,0 +1,4 @@
+jasonackerman_description
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_description/share/jasonackerman_description/cmake/jasonackerman_descriptionConfig.cmake /home/sjh/jason_ws/jasonackerman/devel/share/jasonackerman_description/cmake/jasonackerman_descriptionConfig.cmake
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_description/share/jasonackerman_description/cmake/jasonackerman_descriptionConfig-version.cmake /home/sjh/jason_ws/jasonackerman/devel/share/jasonackerman_description/cmake/jasonackerman_descriptionConfig-version.cmake
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_description/lib/pkgconfig/jasonackerman_description.pc /home/sjh/jason_ws/jasonackerman/devel/lib/pkgconfig/jasonackerman_description.pc

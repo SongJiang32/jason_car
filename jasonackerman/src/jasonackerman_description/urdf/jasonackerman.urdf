@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="jasonackerman">
+
+
+  <link name="base_footprint"> 
+    <visual>
+      <origin rpy = "0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </visual>  
+  </link>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz = "0.0 0.0 0.0" rpy = "0.0 0.0 0.0"/>
+  </joint>
+
+                                                                        <!-- base -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.0986307962771763 -0.00606145083501515 0.0246784205888152" rpy="0 0 0" />
+      <mass value="0.79045002241351" />
+      <inertia ixx="0.00184431642632397" ixy="-0.000198633690901434" ixz="2.57251850601182E-05" iyy="0.00507967476184612" iyz="1.33844388662259E-06" izz="0.00682311065651123" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+                                                                        <!-- steer -->
+  <link name="flsteer_link">
+    <inertial>
+      <origin xyz="-0.00177697904001206 0.0119947793633224 0.0199481108483651" rpy="0 0 0" />
+      <mass value="0.0218317063586754" />
+      <inertia ixx="4.40448024102751E-06" ixy="-3.1624058432679E-07" ixz="-2.28701360440268E-07" iyy="3.63268556135629E-06" iyz="-4.57135524280506E-07" izz="3.88383942272061E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/flsteer_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/flsteer_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="flsteer_joint" type="revolute">
+    <origin xyz="0.106453911885353 0.0996848077366239 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="flsteer_link" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.7854" upper="0.7854" effort="10.0" velocity="1.0" />
+  </joint>
+
+
+
+                                                                        <!-- front wheel -->
+  <link name="flwheel_link">
+    <inertial>
+      <origin xyz="0.00131867951869688 -0.0215873377409562 -2.06217626327714E-06" rpy="0 0 0" />
+      <mass value="0.3242426774999" />
+      <inertia ixx="0.000436832485006" ixy="-2.01912753093833E-05" ixz="3.32663356607194E-09" iyy="0.000765470002116753" iyz="-1.89576020442492E-08" izz="0.000435597552274653" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/flwheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/flwheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="flwheel_joint" type="continuous">
+    <origin xyz="-0.00537227147906794 0.0878358622611242 0.0225" rpy="0 0 0" />
+    <parent link="flsteer_link" />
+    <child link="flwheel_link" />
+    <axis xyz="-0.0610485395348633 0.998134798421867 0" />
+  </joint>
+
+
+
+
+  <link name="frsteer_link">
+    <inertial>
+      <origin xyz="-0.000394943646332052 -0.0121178807807012 0.0199493021246534" rpy="0 0 0" />
+      <mass value="0.0218317063585599" />
+      <inertia ixx="4.32374855527671E-06" ixy="3.95205273039856E-07" ixz="-2.79667787576202E-07" iyy="3.71358482888032E-06" iyz="4.28367255252075E-07" izz="3.88376877520161E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/frsteer_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/frsteer_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="frsteer_joint" type="revolute">
+    <origin xyz="0.117808940238837 -0.0859682647698433 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="frsteer_link" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.7854" upper="0.7854" effort="10.0" velocity="1.0" />
+  </joint>
+
+
+  <link name="frwheel_link">
+    <inertial>
+      <origin xyz="-0.00112836168420899 0.021598121754364 -1.9719593480419E-06" rpy="0 0 3.14159" />
+      <mass value="0.324242676446175" />
+      <inertia ixx="0.000436493579511483" ixy="-1.72081327774705E-05" ixz="1.24578282847162E-09" iyy="0.000765809137392587" iyz="1.83779908086868E-08" izz="0.000435597321388143" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/frwheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/frwheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="frwheel_joint" type="continuous">
+    <origin xyz="0.00458400794141943 -0.0878805261203656 0.0224999999999998" rpy="0 0 3.14159" />
+    <parent link="frsteer_link" />
+    <child link="frwheel_link" />
+    <axis xyz="0.0520909993342623 -0.998642342276932 0" />
+  </joint>
+
+
+
+                                                                        <!-- rear wheel -->
+  <link name="rlwheel_link">
+    <inertial>
+      <origin xyz="0.00131880604993162 -0.0215873299960144 -2.15783193155406E-06" rpy="0 0 0" />
+      <mass value="0.324242677416703" />
+      <inertia ixx="0.000436832086874231" ixy="-2.01901239715866E-05" ixz="3.30795935597314E-09" iyy="0.000765470144443146" iyz="-1.98475122519418E-08" izz="0.000435597807997045" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/rlwheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/rlwheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rlwheel_joint" type="continuous">
+    <origin xyz="-0.230798180068986 0.167222030602406 0.0219315857500345" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="rlwheel_link" />
+    <axis xyz="-0.0610485395348608 0.998134798421867 0" />
+  </joint>
+
+
+
+  <link name="rrwheel_link">
+    <inertial>
+      <origin xyz="-0.00131858767695536 0.0215873433627656 -1.9848024041761E-06" rpy="0 0 3.14159" />
+      <mass value="0.324242677563249" />
+      <inertia ixx="0.000436832786695168" ixy="-2.01921102235026E-05" ixz="-3.31730563882219E-09" iyy="0.000765469898857587" iyz="1.82392651231252E-08" izz="0.000435597353907618" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/rrwheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/rrwheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rrwheel_joint" type="continuous">
+    <origin xyz="-0.208698608757365 -0.19410276642631 0.0219315857500352" rpy="0 0 3.14159" />
+    <parent link="base_link" />
+    <child link="rrwheel_link" />
+    <axis xyz="0.061048539534864 -0.998134798421867 0" />
+  </joint>
+
+
+
+
+                                                                        <!-- camera -->
+  <link name="fcamera_link">
+    <inertial>
+      <origin xyz="-0.00170382938425588 0.00163382240656459 -0.0109226856100445" rpy="0 0 0" />
+      <mass value="0.0390086366740058" />
+      <inertia ixx="2.9502573707424E-05" ixy="2.05444935904127E-06" ixz="-5.13862836147214E-09" iyy="2.89518204934742E-06" iyz="4.92749229094257E-09" izz="2.94298435364155E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/fcamera_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.203921568627451 0.203921568627451 0.203921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/fcamera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="fcamera_joint" type="fixed">
+    <origin xyz="0.119617437050258 0.00731613552990169 0.085" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="fcamera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+  <link name="bcamera_link">
+    <inertial>
+      <origin xyz="0.00170382938425589 -0.0016338224065646 -0.0109226856100445" rpy="0 0 3.14159" />
+      <mass value="0.0390086366740059" />
+      <inertia ixx="2.9502573707424E-05" ixy="2.05444935904127E-06" ixz="5.13862836147189E-09" iyy="2.89518204934743E-06" iyz="-4.92749229094416E-09" izz="2.94298435364155E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/bcamera_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.203921568627451 0.203921568627451 0.203921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/bcamera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="bcamera_joint" type="fixed">
+    <origin xyz="-0.219748394413174 -0.0134403679119518 0.085" rpy="0 0 3.14159" />
+    <parent link="base_link" />
+    <child link="bcamera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+
+  <link name="lcamera_link">
+    <inertial>
+      <origin xyz="-8.2796611033803E-05 1.79283096854443E-05 -0.0212135677013229" rpy="0 0 0" />
+      <mass value="0.037657741050606" />
+      <inertia ixx="6.93835561986254E-06" ixy="-2.54017499733702E-07" ixz="6.65889857267212E-10" iyy="1.082661267843E-05" iyz="-1.44188021712025E-10" izz="7.00079774148615E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/lcamera_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/lcamera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lcamera_joint" type="continuous">
+    <origin xyz="-0.0541862551002299 0.0643119827024453 0.06" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="lcamera_link" />
+    <axis xyz="0 0 -1" />
+  </joint>
+
+
+  <link name="rcamera_link">
+    <inertial>
+      <origin xyz="8.2796611033803E-05 -1.79283096854374E-05 -0.0212135677013229" rpy="0 0 0" />
+      <mass value="0.037657741050606" />
+      <inertia ixx="6.93835561986254E-06" ixy="-2.54017499733703E-07" ixz="-6.6588985726657E-10" iyy="1.082661267843E-05" iyz="1.44188021712714E-10" izz="7.00079774148615E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/rcamera_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/rcamera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rcamera_joint" type="continuous">
+    <origin xyz="-0.0459447022626867 -0.0704362150844954 0.06" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="rcamera_link" />
+    <axis xyz="0 0 -1" />
+  </joint>
+
+
+                                                                        <!-- lidar -->
+  <link name="lidar_link">
+    <inertial>
+      <origin xyz="2.9929694273307E-05 1.83057852205792E-06 -0.0299033138303013" rpy="0 0 0" />
+      <mass value="0.137399177283447" />
+      <inertia ixx="6.30724236609995E-05" ixy="6.40384040481474E-09" ixz="9.08685421506256E-08" iyy="6.2968113471547E-05" iyz="5.55775812718171E-09" izz="5.7522181737932E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/lidar_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.203921568627451 0.203921568627451 0.203921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0.0225488279037325 0.0013791650601363 0.118" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+                                                                        <!-- imu -->
+  <link name="imu_link">
+    <inertial>
+      <origin xyz="-1.38777878078145E-17 0 -0.00799253916575123" rpy="0 0 0" />
+      <mass value="0.0184747942495883" />
+      <inertia ixx="2.17543786278253E-06" ixy="2.95997067161085E-22" ixz="2.36673597884658E-22" iyy="2.17543786278253E-06" iyz="-1.32339299062349E-22" izz="3.56353881019746E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/imu_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/imu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="-0.0500654786814583 -0.00306211619102503 0.016" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+                                                                        <!-- ultrasonic-->
+  <link name="ultrasonic_link">
+    <inertial>
+      <origin xyz="-0.00532842815679485 -0.000325900627353229 0.000205324040515713" rpy="0 0 0" />
+      <mass value="0.0244810506997547" />
+      <inertia ixx="9.12950704269778E-06" ixy="4.27340481857346E-07" ixz="4.5737282960363E-09" iyy="2.16868918881094E-06" iyz="2.79741206441964E-10" izz="7.96032650658838E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/ultrasonic_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://jasonackerman_description/meshes/ultrasonic_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ultrasonic_joint" type="fixed">
+    <origin xyz="0.142075470014752 0.00868972766943623 0.015" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="ultrasonic_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+
+
+                                                                        <!-- PLUGINS -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/jasonackerman</robotNamespace>
+    </plugin>
+    <gravity>1</gravity>
+    <friction>
+      <mu>0.8</mu>
+      <mu2>0.8</mu2>
+    </friction>
+  </gazebo>
+
+
+                                                                        <!-- gazebo plugin for LIDAR -->
+  <gazebo reference="lidar_link">
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 -0.03 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>15</update_rate> 
+      <ray>
+        <scan>
+          <horizontal>
+            <!-- 水平角分辨率LDS-E300-E: 0.5°@25HZ -->
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.1415926535</min_angle>
+            <!-- <min_angle>-1.570796</min_angle> -->
+            <max_angle>3.1415926535</max_angle>
+            <!-- <max_angle>1.570796</max_angle> -->
+          </horizontal>
+        </scan>
+        <range>
+          <!-- 0.1-25m（90%） -->
+          <min>0.21</min>
+          <max>25.0</max>
+          <!-- 距离分辨率mm级 -->
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+                achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <!-- GPU Laser -->
+      <!-- <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> -->
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>  
+
+
+                                                                        <!-- gazebo plugin for fcamera -->
+ <gazebo reference="fcamera_link">
+  <sensor type="depth" name="camera">
+    <always_on>true</always_on>
+    <update_rate>90.0</update_rate>  <!-- 根据深度分辨率的帧率 -->
+    <camera>
+      <!-- 深度相机参数 -->
+      <horizontal_fov>1.50098</horizontal_fov>  <!-- 86° -> 1.50098 弧度 -->
+      <image>
+        <format>B8G8R8</format>
+        <width>1280</width>
+        <height>720</height>
+      </image>
+      <clip>
+        <near>0.3</near>  <!-- 根据理想范围参数 -->
+        <far>3.0</far>    <!-- 根据理想范围参数 -->
+      </clip>
+    </camera>
+    <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.025</baseline>  <!-- 根据相机尺寸估算 -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate> <!-- 保持为0，使用父级<sensor>标签中的update_rate来控制帧率 -->
+      <cameraName>fcamera_ir</cameraName>
+      <imageTopicName>/fcamera/color/image_raw</imageTopicName>
+      <cameraInfoTopicName>/fcamera/color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/fcamera/depth/image_raw</depthImageTopicName>
+      <depthImageCameraInfoTopicName>/fcamera/depth/camera_info</depthImageCameraInfoTopicName>
+      <pointCloudTopicName>/fcamera/depth/points</pointCloudTopicName>
+      <frameName>fcamera_link</frameName>
+      <pointCloudCutoff>0.3</pointCloudCutoff>  <!-- 根据理想范围参数 -->
+      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>  <!-- 根据理想范围参数 -->
+      <distortionK1>0</distortionK1>
+      <distortionK2>0</distortionK2>
+      <distortionK3>0</distortionK3>
+      <distortionT1>0</distortionT1>
+      <distortionT2>0</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+                                                                        <!-- gazebo plugin for bcamera -->
+ <gazebo reference="bcamera_link">
+  <sensor type="depth" name="camera">
+    <always_on>true</always_on>
+    <update_rate>90.0</update_rate>  <!-- 根据深度分辨率的帧率 -->
+    <camera>
+      <!-- 深度相机参数 -->
+      <horizontal_fov>1.50098</horizontal_fov>  <!-- 86° -> 1.50098 弧度 -->
+      <image>
+        <format>B8G8R8</format>
+        <width>1280</width>
+        <height>720</height>
+      </image>
+      <clip>
+        <near>0.3</near>  <!-- 根据理想范围参数 -->
+        <far>3.0</far>    <!-- 根据理想范围参数 -->
+      </clip>
+    </camera>
+    <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.025</baseline>  <!-- 根据相机尺寸估算 -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate> <!-- 保持为0，使用父级<sensor>标签中的update_rate来控制帧率 -->
+      <cameraName>bcamera_ir</cameraName>
+      <imageTopicName>/bcamera/color/image_raw</imageTopicName>
+      <cameraInfoTopicName>/bcamera/color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/bcamera/depth/image_raw</depthImageTopicName>
+      <depthImageCameraInfoTopicName>/bcamera/depth/camera_info</depthImageCameraInfoTopicName>
+      <pointCloudTopicName>/bcamera/depth/points</pointCloudTopicName>
+      <frameName>bcamera_link</frameName>
+      <pointCloudCutoff>0.3</pointCloudCutoff>  <!-- 根据理想范围参数 -->
+      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>  <!-- 根据理想范围参数 -->
+      <distortionK1>0</distortionK1>
+      <distortionK2>0</distortionK2>
+      <distortionK3>0</distortionK3>
+      <distortionT1>0</distortionT1>
+      <distortionT2>0</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+                                                                        <!-- gazebo plugin for imu -->
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu/data</topicName>
+        <bodyName>body_link</bodyName>
+        <updateRateHZ>100.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+
+
+
+
+                                                  <!-- set transmission -->
+                  <!-- steer -->
+  <transmission name="flsteer_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="flsteer_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="flsteer_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <transmission name="frsteer_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="frsteer_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="frsteer_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+                                         <!-- wheel -->
+  <transmission name="flwheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="flwheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="flwheel_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="frwheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="frwheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="frwheel_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="rlwheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rlwheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rlwheel_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="rrwheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rrwheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rrwheel_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+
+
+
+</robot>

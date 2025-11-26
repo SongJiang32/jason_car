@@ -1,0 +1,26 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint_link
+  # 是否将map_server发来的地图数据作为初始地图
+  static_map: true
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  # 如果在导航过程中tf发生timeout情况，可以把transform_tolerance调大
+  transform_tolerance: 1.0
+
+# 恢复行为主要是给全局路径规划服务的, 下面的恢复行为可以自定义
+recovery_behaviors:
+  - name: 'conservative_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  - name: 'rotate_recovery'
+    type: 'rotate_recovery/RotateRecovery'
+  - name: 'aggressive_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+conservative_reset:
+  reset_distance: 2.0
+  layer_names: ["obstacle_layer"]
+
+aggressive_reset:
+  reset_distance: 0.0
+  layer_names: ["obstacle_layer"]

@@ -1,0 +1,90 @@
+[35m[1mScanning dependencies of target roscpp_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target _bluesea2_generate_messages_check_deps_Control[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py[0m
+[  0%] Built target rosgraph_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target roscpp_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py[0m
+[  0%] Built target geometry_msgs_generate_messages_py
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_eus[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_nodejs[0m
+[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_py[0m
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_cpp
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_py[0m
+[  0%] Built target roscpp_generate_messages_py
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_lisp[0m
+[  0%] Built target _bluesea2_generate_messages_check_deps_Control
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_nodejs[0m
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp[0m
+[  0%] Built target roscpp_generate_messages_lisp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target bluesea2_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target bluesea2_generate_messages_eus[0m
+[35m[1mScanning dependencies of target bluesea2_generate_messages_py[0m
+[35m[1mScanning dependencies of target bluesea2_generate_messages_lisp[0m
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  5%] [34m[1mGenerating EusLisp manifest code for bluesea2[0m
+[35m[1mScanning dependencies of target bluesea2_generate_messages_cpp[0m
+[ 10%] [34m[1mGenerating Python code from SRV bluesea2/Control[0m
+[ 15%] [34m[1mGenerating EusLisp code from bluesea2/Control.srv[0m
+[ 25%] [34m[1mGenerating Lisp code from bluesea2/Control.srv[0m
+[ 25%] [34m[1mGenerating Javascript code from bluesea2/Control.srv[0m
+[ 30%] [34m[1mGenerating C++ code from bluesea2/Control.srv[0m
+[ 30%] Built target bluesea2_generate_messages_lisp
+[ 30%] Built target bluesea2_generate_messages_nodejs
+[ 35%] [34m[1mGenerating Python srv __init__.py for bluesea2[0m
+[ 35%] Built target bluesea2_generate_messages_cpp
+[35m[1mScanning dependencies of target bluesea2_node[0m
+[35m[1mScanning dependencies of target bluesea2_client[0m
+[35m[1mScanning dependencies of target bluesea2_heart_check[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/bluesea2_client.dir/src/client.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/bluesea2_heart_check.dir/src/heart_check.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/sdk/src/tcp_reader.cpp.o[0m
+[ 55%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/src/node.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/sdk/src/algorithmAPI.cpp.o[0m
+[ 65%] [32mBuilding C object CMakeFiles/bluesea2_node.dir/sdk/src/uart.c.o[0m
+[ 70%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/sdk/src/parser.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/sdk/src/bluesea.cpp.o[0m
+[ 80%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/sdk/src/uart_reader.cpp.o[0m
+[ 85%] [32mBuilding CXX object CMakeFiles/bluesea2_node.dir/sdk/src/udp_reader.cpp.o[0m
+[ 85%] Built target bluesea2_generate_messages_py
+[ 85%] Built target bluesea2_generate_messages_eus
+[35m[1mScanning dependencies of target bluesea2_generate_messages[0m
+[ 85%] Built target bluesea2_generate_messages
+[ 90%] [32m[1mLinking CXX executable /home/sjh/jason_ws/jasonackerman/devel/.private/bluesea2/lib/bluesea2/bluesea2_client[0m
+[ 90%] Built target bluesea2_client
+[ 95%] [32m[1mLinking CXX executable /home/sjh/jason_ws/jasonackerman/devel/.private/bluesea2/lib/bluesea2/bluesea2_heart_check[0m
+[ 95%] Built target bluesea2_heart_check
+[100%] [32m[1mLinking CXX executable /home/sjh/jason_ws/jasonackerman/devel/.private/bluesea2/lib/bluesea2/bluesea2_node[0m
+[100%] Built target bluesea2_node

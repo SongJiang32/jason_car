@@ -1,0 +1,6 @@
+devel_space: /home/sjh/jason_ws/jason2wd/devel
+install: false
+install_space: /home/sjh/jason_ws/jason2wd/install
+profile: default
+source_space: /home/sjh/jason_ws/jason2wd/src
+workspace: /home/sjh/jason_ws/jason2wd

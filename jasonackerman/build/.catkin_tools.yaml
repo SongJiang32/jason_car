@@ -1,0 +1,6 @@
+devel_space: /home/sjh/jason_ws/jasonackerman/devel
+install: false
+install_space: /home/sjh/jason_ws/jasonackerman/install
+profile: default
+source_space: /home/sjh/jason_ws/jasonackerman/src
+workspace: /home/sjh/jason_ws/jasonackerman

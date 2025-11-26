@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/yuanzhishiwo32/jason_ws/jasonackerman/devel/lib/python3/dist-packages",
+        "/home/yuanzhishiwo32/cartographer_ws/install_isolated/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/yuanzhishiwo32/jason_ws/jasonackerman/devel/lib/python3/dist-packages",
+        "/home/yuanzhishiwo32/cartographer_ws/install_isolated/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

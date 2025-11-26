@@ -1,0 +1,65 @@
+<launch>
+  <param name="use_sim_time" value="true"/>
+
+  <!-- 加载两个机器人的URDF文件 -->
+  <param name="robot_description_red" 
+         command="$(find xacro)/xacro '$(find jason2wd_description)/urdf/jason2wd_red.urdf'"/>
+         
+  <param name="robot_description_green" 
+         command="$(find xacro)/xacro '$(find jason2wd_description)/urdf/jason2wd_green.urdf'"/>
+
+  <!-- 为每个机器人启动独立的状态发布器 -->
+  <!-- 红色机器人的状态发布器 -->
+  <group ns="red">
+    <param name="robot_description" 
+           command="$(find xacro)/xacro '$(find jason2wd_description)/urdf/jason2wd_red.urdf'"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <remap from="robot_description" to="/robot_description_red"/>
+    </node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <remap from="robot_description" to="/robot_description_red"/>
+    </node>
+  </group>
+
+  <!-- 绿色机器人的状态发布器 -->
+  <group ns="green">
+    <param name="robot_description" 
+           command="$(find xacro)/xacro '$(find jason2wd_description)/urdf/jason2wd_green.urdf'"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <remap from="robot_description" to="/robot_description_green"/>
+    </node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <remap from="robot_description" to="/robot_description_green"/>
+    </node>
+  </group>
+
+  <!-- 启动Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find jason2wd_gazebo)/worlds/road.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="true"/>
+  </include>
+
+  <!-- 生成红色机器人 - 添加延迟确保Gazebo完全启动 -->
+  <node name="spawn_urdf_red" pkg="gazebo_ros" type="spawn_model" output="screen"
+        launch-prefix="bash -c 'sleep 5; $0 $@'"
+        args="-param robot_description_red
+              -urdf
+              -model jason2wd_red
+              -x 0 -y 0 -z 0.5
+              -R 0 -P 0 -Y 0"/>
+              
+  <!-- 生成绿色机器人 -->
+  <node name="spawn_urdf_green" pkg="gazebo_ros" type="spawn_model" output="screen"
+        launch-prefix="bash -c 'sleep 6; $0 $@'"
+        args="-param robot_description_green
+              -urdf
+              -model jason2wd_green
+              -x -1 -y 1.2 -z 0.5
+              -R 0 -P 0 -Y 0"/>
+
+</launch>

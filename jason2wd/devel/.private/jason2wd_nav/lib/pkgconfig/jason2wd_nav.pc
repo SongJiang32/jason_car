@@ -1,0 +1,8 @@
+prefix=/home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_nav
+
+Name: jason2wd_nav
+Description: Description of jason2wd_nav
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

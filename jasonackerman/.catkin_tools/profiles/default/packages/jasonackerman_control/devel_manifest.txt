@@ -1,0 +1,4 @@
+jasonackerman_control
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_control/share/jasonackerman_control/cmake/jasonackerman_controlConfig-version.cmake /home/sjh/jason_ws/jasonackerman/devel/share/jasonackerman_control/cmake/jasonackerman_controlConfig-version.cmake
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_control/share/jasonackerman_control/cmake/jasonackerman_controlConfig.cmake /home/sjh/jason_ws/jasonackerman/devel/share/jasonackerman_control/cmake/jasonackerman_controlConfig.cmake
+/home/sjh/jason_ws/jasonackerman/devel/.private/jasonackerman_control/lib/pkgconfig/jasonackerman_control.pc /home/sjh/jason_ws/jasonackerman/devel/lib/pkgconfig/jasonackerman_control.pc

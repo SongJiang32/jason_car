@@ -1,0 +1,15 @@
+(cl:defpackage bluesea2-srv
+  (:use )
+  (:export
+   "CONTROL"
+   "<CONTROL-REQUEST>"
+   "CONTROL-REQUEST"
+   "<CONTROL-RESPONSE>"
+   "CONTROL-RESPONSE"
+   "DEFENCEZONE"
+   "<DEFENCEZONE-REQUEST>"
+   "DEFENCEZONE-REQUEST"
+   "<DEFENCEZONE-RESPONSE>"
+   "DEFENCEZONE-RESPONSE"
+  ))
+

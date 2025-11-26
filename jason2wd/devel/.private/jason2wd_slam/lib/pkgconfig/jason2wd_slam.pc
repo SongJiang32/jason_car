@@ -1,0 +1,8 @@
+prefix=/home/sjh/jason_ws/jason2wd/devel/.private/jason2wd_slam
+
+Name: jason2wd_slam
+Description: Description of jason2wd_slam
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
